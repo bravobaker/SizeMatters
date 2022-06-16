@@ -11,7 +11,7 @@ ARCHI:
 
 Next we run Mann-Whitney U test to check for above-random separation (mutual displacement) in the ordering of two samples (gender 3 nouns and gender 4 nouns) along a scale:
 
-![](mann whitney u.png)
+![](mann_whitney_u.png)
 
 These are the p-values that we got:
 _ARCHI_
