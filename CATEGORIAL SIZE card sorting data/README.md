@@ -13,7 +13,7 @@ Next we run Mann-Whitney U test to check for above-random separation (mutual dis
 
 ![](mann_whitney_u.png)
 
-##These are the p-values that we got:
+## These are the p-values that we got:
 
 _ARCHI_
 BIRDS: gender 3 is bigger, p-value: 0.005622733175078314 
@@ -36,7 +36,7 @@ ANIMALS: there is no significant difference, p-value: 0.13939509407377476
 TOOLS: there is no significant difference, p-value: 0.7320931128468913 
 BODYPARTS: there  is no significant difference, p-value: 0.05976215381948469
 
-##In this folder you may find:
+## In this folder you may find:
 
 1. sets of concepts that we used: [animals](https://duckduckgo.com), [wild animals](https://duckduckgo.com), [birds](https://duckduckgo.com), [tools](https://duckduckgo.com), [bodyparts](https://duckduckgo.com)
 2. aggregated ranks for concepts within categories: [animals](), [birds](), [tools](), [bodyparts]()
