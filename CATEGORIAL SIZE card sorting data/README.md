@@ -15,7 +15,7 @@ Next we run Mann-Whitney U test to check for above-random separation (mutual dis
 
 ## These are the p-values that we got:
 
-_ARCHI_
+1. __ARCHI__
 
 BIRDS: gender 3 is bigger, p-value: 0.005622733175078314
 
@@ -28,21 +28,21 @@ ANIMALS: gender 3 is bigger, p-value: 0.018023701756087862
 WILD ANIMALS: there is no significant difference, p-value: 0.05976215381948469
 
 
-_LAK_ (all ANIMALS and BIRDS go gender 3)
+2. __LAK__ (all ANIMALS and BIRDS go gender 3)
 
 BODYPARTS: there is no significant difference, p-value: 0.1831870613765758
 
 TOOLS: there is no significant difference, p-value: 0.4644182618953264 
 
 
-_RUTUL_ (all ANIMALS and BIRDS go gender 3)
+3. __RUTUL__ (all ANIMALS and BIRDS go gender 3)
 
 BODYPARTS: there is no significant difference, p-value: 0.15060528553926286
 
 TOOLS: there is no significant difference, p-value: 0.10516742324521319
 
 
-_TSAKHUR_ (all BIRDS are gender 3)
+4. __TSAKHUR__ (all BIRDS are gender 3)
 
 WILD ANIMALS: there is no significant difference, p-value: 0.8736424410187432
 
