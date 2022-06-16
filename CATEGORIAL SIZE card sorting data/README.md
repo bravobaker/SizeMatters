@@ -59,4 +59,4 @@ BODYPARTS: there  is no significant difference, p-value: 0.05976215381948469
 
 1. sets of concepts that we used: [animals](https://duckduckgo.com), [wild animals](https://duckduckgo.com), [birds](https://duckduckgo.com), [tools](https://duckduckgo.com), [bodyparts](https://duckduckgo.com)
 2. aggregated ranks for concepts within categories: [animals](), [birds](), [tools](), [bodyparts]()
-3. all the produced rankings before the aggregation: [animals rankings](), [birds rankings](), [tools rankings](), [bodyparts rankings]()
+3. all the produced rankings before the aggregation:[this is a user-frienfly google sheet](https://docs.google.com/spreadsheets/d/1lqKpp8eTUgpMqK0UJmE1mrqHaKqMkXKCQswXnRumGbs/edit#gid=640697967). You can filter it by _user id_ to see what were the actual category labels that we turned into ranks. You can also download these [animals rankings](), [birds rankings](), [tools rankings](), [bodyparts rankings](). 
