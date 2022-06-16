@@ -40,3 +40,39 @@ __NB!__	To run Fisher-exact test, we did not use all the concepts that are featu
 In MA&R and MCRAE datasets size and gender values are not independent
 
 2. _LAK_
+
+|                     |                  | 3  | 4  |
+|---------------------|------------------|----|----|
+| p-value:   0.008    | MA&R big LAK     | 46 | 14 |
+|                     | MA&R small LAK   | 62 | 49 |
+| p-value:  0.2379    | BINDER big LAK   | 48 | 14 |
+|                     | BINDER small LAK | 44 | 22 |
+| p-value:  < 0.00001 | MCRAE big LAK    | 18 | 1  |
+|                     | MCRAE small LAK  | 3  | 24 |
+
+In MA&R and MCRAE datasets size and gender values are not independent
+
+3. _RUTUL_
+
+|                     |                    | 3  | 4  |
+|---------------------|--------------------|----|----|
+| p-value:   0.4387   | MA&R big RUTUL     | 37 | 27 |
+|                     | MA&R small RUTUL   | 86 | 49 |
+| p-value:  0.6291    | BINDER big RUTUL   | 52 | 28 |
+|                     | BINDER small RUTUL | 51 | 33 |
+| p-value:  < 0.00001 | MCRAE big RUTUL    | 1  | 19 |
+|                     | MCRAE small RUTUL  | 26 | 5  |
+
+
+In MCRAE dataset size and gender values are not independent but in the unexpected way
+
+4. _TSAKHUR_
+
+|                   |                      | 3  | 4  |
+|-------------------|----------------------|----|----|
+| p-value:  0.2903. | MA&R big TSAKHUR     | 35 | 36 |
+|                   | MA&R small TSAKHUR   | 68 | 49 |
+| p-value:  1       | BINDER big TSAKHUR   | 40 | 36 |
+|                   | BINDER small TSAKHUR | 41 | 36 |
+| p-value:  0.1107  | MCRAE big TSAKHUR    | 3  | 15 |
+|                   | MCRAE small TSAKHUR  | 11 | 29 |  
