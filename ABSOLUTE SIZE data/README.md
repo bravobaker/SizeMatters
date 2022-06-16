@@ -27,6 +27,7 @@ __NB!__	To run Fisher-exact test, we did not use all the concepts that are featu
 ## p-values:
 
 1. _ARCHI_
+
 |                   |                    | 3  | 4  |
 |-------------------|--------------------|----|----|
 | p-value:  0.012   | MA&R big ARCHI     | 43 | 19 |
