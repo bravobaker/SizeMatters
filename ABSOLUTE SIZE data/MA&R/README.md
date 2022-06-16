@@ -9,3 +9,4 @@ Below you may find the brief description of our experiment.
 * we asked half of the participants to name entities that would have been known to XIXth century person as a means to prevent them from listing nouns for technological objects which are almost recent loanwords and are absent from the available lexical lists (самолет ‘plane’, микроб ‘microbe’)
 * we asked participants not to use diminutives and multiword expressions (веточка, малюсенькая ветка ‘little branch’)
 * This is how our query looked like:
+![](query.png)
