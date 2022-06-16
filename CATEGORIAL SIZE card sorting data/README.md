@@ -3,9 +3,8 @@
 In this experiment we test for the __Categorial Size Hypothesis.__ It is formulated as follows: in Archi (also Lak, Tsakhur and Rutul) within specific conceptual categories, small objects go to Gender 4 and/or big objects go to Gender 3. Here we probe for semantic categories of BIRDS, ANIMALS, WILD ANIMALS, BODYPARTS, TOOLS. 
 
 Overall procedure looks like this: we take Kibrik & Kodzasov «Imya» Thesaurus (1990?) and retrieve all the members of the respective semantic categories. Then we assign size values to the concepts within a given category: we try to find out how different members of BIRDS/TOLLS/etc. are related to each others size-wisely.
-To do so we run our card-sorting experiment: we ask a participant to group together members of a given category on the grounds of their similarity in size. Cards for every semantic category are evaluated by 10 participants. Then we take the mean value for every concept and compile these mean values into the intra-categorial scale. At this point we have 5 scales of concepts aligned on the ground of their size scores (for 5 semantic categories). Then we translate concepts into 4 languages and retrieve gender values of every word in a given language. At this point we  have 4 databases of this kind:
+To do so we run our card-sorting experiment: we ask a participant to group together members of a given category on the grounds of their similarity in size. Cards for every semantic category are evaluated by 10 participants. Then we take the mean value for every concept and compile these mean values into the intra-categorial scale. At this point we have 5 scales of concepts aligned on the ground of their size scores (for 5 semantic categories). Then we translate concepts into 4 languages and retrieve gender values of every word in a given language. At this point, for every language, we have 5 databases of this kind:
 
-ARCHI:
 | concept | size value | word | gender value |
 |---------|------------|------|--------------|
 
@@ -28,6 +27,7 @@ ANIMALS: gender 3 is bigger, p-value: 0.018023701756087862
 WILD ANIMALS: there is no significant difference, p-value: 0.05976215381948469
 
 
+
 2. __LAK__ (all ANIMALS and BIRDS go gender 3)
 
 BODYPARTS: there is no significant difference, p-value: 0.1831870613765758
@@ -35,11 +35,13 @@ BODYPARTS: there is no significant difference, p-value: 0.1831870613765758
 TOOLS: there is no significant difference, p-value: 0.4644182618953264 
 
 
+
 3. __RUTUL__ (all ANIMALS and BIRDS go gender 3)
 
 BODYPARTS: there is no significant difference, p-value: 0.15060528553926286
 
 TOOLS: there is no significant difference, p-value: 0.10516742324521319
+
 
 
 4. __TSAKHUR__ (all BIRDS are gender 3)
