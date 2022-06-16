@@ -1,11 +1,3 @@
 # Size Matters: size effects in gender assignment in 4 East Caucasian languages
 
-**bold**
-
-*italic*
-
-_italic_
-
-__bold__
-
-[link](site.html)
+Here you can find data and results for ABSOLUTE and CATEGORIAL size experiments. To see more detailed descriptions of data check the corresponding folders
