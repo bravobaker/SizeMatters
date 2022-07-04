@@ -1,0 +1,151 @@
+---
+title: "Absolute_size"
+output: html_document
+date: '2022-07-04'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r import libraries, message=FALSE, warning=FALSE, }
+library(tidyverse)
+library(knitr)
+library(openxlsx)
+library(tidyr)
+library(jtools)
+library(rms)
+library(car)
+library(MVN)
+library(naniar)
+library(party)
+library(knitr)
+library(lattice)
+library(Hmisc)
+library(vcd)
+library(e1071)
+```
+
+Тут импортируем файлы, важно написать язык, чтобы потом таблицы правильно сохранялись!!
+```{r  input: LIST OF NOUNS (for a given language)}
+language = "ARCHI"
+concepts = read.xlsx("test LIST OF CONCEPTS.xlsx")
+language_list = read.xlsx("test ARCHI LIST OF NOUNS.xlsx")
+```
+
+Тут соединяем таблицу и список концептов:
+```{r add size values and save}
+joint_df <- merge(language_list, concepts, by="CONCEPT", all.x=TRUE)
+write.xlsx(joint_df, sprintf("test JOINT_TABLE_%s.xlsx", language))
+```
+
+Тут ищем квантили и медианы и фильтруем:
+```{r}
+mar_big_values <- joint_df$"MA&R.BIG.y"[!is.na(joint_df$"MA&R.BIG.y")]
+joint_df %>% filter(joint_df$"MA&R.BIG.y" > quantile(mar_big_values)[4]) -> mar_big_quantile
+joint_df %>% filter(joint_df$"MA&R.BIG.y" > median(mar_big_values)) -> mar_big_median
+
+mar_small_values <- joint_df$"MA&R.SMALL.y"[!is.na(joint_df$"MA&R.SMALL.y")]
+joint_df %>% filter(joint_df$"MA&R.SMALL.y" > quantile(mar_small_values)[4]) -> mar_small_quantile
+joint_df %>% filter(joint_df$"MA&R.SMALL.y" > median(mar_small_values)) -> mar_small_median
+
+write.xlsx(mar_big_quantile, sprintf("MA&R.BIG quantile for %s.xlsx", language))
+write.xlsx(mar_small_quantile, sprintf("MA&R.SMALL quantile for %s.xlsx", language))
+write.xlsx(mar_big_median, sprintf("MA&R.BIG median for %s.xlsx", language))
+write.xlsx(mar_small_median, sprintf("MA&R.SMALL median for %s.xlsx", language))
+``` 
+
+Тут просто фильтруем:
+```{r}
+binder_big <- subset(joint_df, !is.na(joint_df$"BINDER.BIG.y"))
+binder_small <- subset(joint_df, !is.na(joint_df$"BINDER.SMALL.y"))
+
+mcrae_big <- subset(joint_df, !is.na(joint_df$"MCRAE.BIG.y"))
+mcrae_small <- subset(joint_df, !is.na(joint_df$"MCRAE.SMALL.y"))
+
+write.xlsx(binder_big, sprintf("BINDER.BIG for %s.xlsx", language))
+write.xlsx(binder_small, sprintf("BINDER.SMALL for %s.xlsx", language))
+write.xlsx(mcrae_big, sprintf("MCRAE.BIG for %s.xlsx", language))
+write.xlsx(mcrae_small, sprintf("MCRAE.SMALL for %s.xlsx", language))
+``` 
+
+Тут мы считаем Фишера:
+```{r}
+mar_big_median <- mar_big_median[c("CLASS", "MA&R.BIG.y")]
+mar_big_median %>% subset(!is.na(mar_big_median$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("MA&R.BIG.y"=n()) -> mar_b_count
+
+mar_small_median <- mar_small_median[c("CLASS", "MA&R.SMALL.y")]
+mar_small_median %>% subset(!is.na(mar_small_median$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("MA&R.SMALL.y"=n()) -> mar_sm_count
+
+mar_fisher <- as.data.frame(t(merge(mar_b_count, mar_sm_count, by="CLASS")))
+colnames(mar_fisher) <- mar_fisher[1, ]
+mar_fisher <- mar_fisher[-1, ]
+mar_fisher$`3` = as.numeric(mar_fisher$`3`)
+mar_fisher$`4` = as.numeric(mar_fisher$`4`)
+
+fisher.test(mar_fisher)
+``` 
+
+```{r}
+mar_big_quantile <- mar_big_quantile[c("CLASS", "MA&R.BIG.y")]
+mar_big_quantile %>% subset(!is.na(mar_big_quantile$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("MA&R.BIG.y"=n()) -> mar_b_count
+
+mar_small_quantile <- mar_small_quantile[c("CLASS", "MA&R.SMALL.y")]
+mar_small_quantile %>% subset(!is.na(mar_small_quantile$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("MA&R.SMALL.y"=n()) -> mar_sm_count
+
+mar_fisher <- as.data.frame(t(merge(mar_b_count, mar_sm_count, by="CLASS")))
+colnames(mar_fisher) <- mar_fisher[1, ]
+mar_fisher <- mar_fisher[-1, ]
+mar_fisher$`3` = as.numeric(mar_fisher$`3`)
+mar_fisher$`4` = as.numeric(mar_fisher$`4`)
+
+fisher.test(mar_fisher)
+``` 
+
+```{r}
+binder_big <- binder_big[c("CLASS", "BINDER.BIG.y")]
+binder_big %>% subset(!is.na(binder_big$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("BINDER.BIG.y"=n()) -> binder_b_count
+
+binder_small <- binder_small[c("CLASS", "BINDER.SMALL.y")]
+binder_small %>% subset(!is.na(binder_small$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("BINDER.SMALL.y"=n()) -> binder_sm_count
+
+binder_fisher <- as.data.frame(t(merge(binder_b_count, binder_sm_count, by="CLASS")))
+colnames(binder_fisher) <- binder_fisher[1, ]
+binder_fisher <- binder_fisher[-1, ]
+binder_fisher$`3` = as.numeric(binder_fisher$`3`)
+binder_fisher$`4` = as.numeric(binder_fisher$`4`)
+
+fisher.test(binder_fisher)
+``` 
+
+```{r}
+mcrae_big <- mcrae_big[c("CLASS", "MCRAE.BIG.y")]
+mcrae_big %>% subset(!is.na(mcrae_big$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("MCRAE.BIG.y"=n()) -> mcrae_b_count
+
+mcrae_small <- mcrae_small[c("CLASS", "MCRAE.SMALL.y")]
+mcrae_small %>% subset(!is.na(mcrae_small$CLASS)) %>%
+  group_by(CLASS) %>%
+  summarise("MCRAE.SMALL.y"=n()) -> mcrae_sm_count
+
+mcrae_fisher <- as.data.frame(t(merge(mcrae_b_count, mcrae_sm_count, by="CLASS")))
+colnames(mcrae_fisher) <- mcrae_fisher[1, ]
+mcrae_fisher <- mcrae_fisher[-1, ]
+mcrae_fisher$`3` = as.numeric(mcrae_fisher$`3`)
+mcrae_fisher$`4` = as.numeric(mcrae_fisher$`4`)
+
+fisher.test(mcrae_fisher)
+``` 
